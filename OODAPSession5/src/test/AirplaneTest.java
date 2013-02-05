@@ -19,4 +19,13 @@ public class AirplaneTest {
 		//fail("Not yet implemented");
 	}
 
+	@Test
+	public void test2() {
+		String expectedOutput = "Vertically";
+		String stringReturned = null;
+		Airplane classUnderTest = new Airplane(1);
+		stringReturned = classUnderTest.howDoYouLiftOff();
+		assertEquals("Wrong Answer!", stringReturned, expectedOutput);
+	}
 }
+

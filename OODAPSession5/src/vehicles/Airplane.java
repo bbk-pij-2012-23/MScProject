@@ -23,4 +23,9 @@ public class Airplane {
 		}
 	}
 
+	public String howDoYouLiftOff() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
