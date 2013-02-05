@@ -5,7 +5,14 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import vehicles.Airplane;
+import vehicles.FFJ;
+import vehicles.Flying;
 
+/**
+ * 
+ * @author emann06
+ *
+ */
 public class AirplaneTest {
 
 	@Test
@@ -13,7 +20,10 @@ public class AirplaneTest {
 		String expectedOutput = "Like a fighter jet";
 		String stringReturned = null;
 		
-		Airplane classUnderTest = new Airplane(1);
+		Flying fly = new FFJ();
+		
+		Airplane classUnderTest = new Airplane(1, fly);
+		
 		stringReturned = classUnderTest.howDoYouFly();
 		assertEquals("Wrong Answer!", stringReturned, expectedOutput);
 		//fail("Not yet implemented");
@@ -23,7 +33,7 @@ public class AirplaneTest {
 	public void test2() {
 		String expectedOutput = "Vertically";
 		String stringReturned = null;
-		Airplane classUnderTest = new Airplane(1);
+		Airplane classUnderTest = new Airplane(1, null);
 		stringReturned = classUnderTest.howDoYouLiftOff();
 		assertEquals("Wrong Answer!", stringReturned, expectedOutput);
 	}
