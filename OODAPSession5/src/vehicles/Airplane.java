@@ -14,4 +14,13 @@ public class Airplane {
 		kind = i;
 	}
 
+	public String howDoYouFly() {
+		switch(kind){
+			case 1: return "Like a fighter jet";
+			case 2: return "I don't fly";
+			case 3: return "Like a passenger plane";
+			default: return null;
+		}
+	}
+
 }

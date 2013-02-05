@@ -16,7 +16,7 @@ public class AirplaneTest {
 		Airplane classUnderTest = new Airplane(1);
 		stringReturned = classUnderTest.howDoYouFly();
 		assertEquals("Wrong Answer!", stringReturned, expectedOutput);
-		fail("Not yet implemented");
+		//fail("Not yet implemented");
 	}
 
 }
