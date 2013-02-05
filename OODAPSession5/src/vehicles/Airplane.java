@@ -24,8 +24,13 @@ public class Airplane {
 	}
 
 	public String howDoYouLiftOff() {
-		// TODO Auto-generated method stub
-		return null;
+		switch(kind){
+			case 1: return "Vertically";
+			case 2: return "I Liftoff";
+			case 3: return "Horizontally";
+			default: return null;
+		}
+			
 	}
 
 }
