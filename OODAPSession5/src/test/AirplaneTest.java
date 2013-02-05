@@ -7,6 +7,7 @@ import org.junit.Test;
 import vehicles.Airplane;
 import vehicles.FFJ;
 import vehicles.Flying;
+import vehicles.ModelAirPlane;
 
 /**
  * 
@@ -36,6 +37,17 @@ public class AirplaneTest {
 		Airplane classUnderTest = new Airplane(1, null);
 		stringReturned = classUnderTest.howDoYouLiftOff();
 		assertEquals("Wrong Answer!", stringReturned, expectedOutput);
+	}
+	
+	@Test
+	public void test3(){
+		String expectedOutput = "I don't Fly";
+		String stringReturned = null;
+		
+		Flying fly = new ModelAirPlane();
+		Airplane classUnderTest = new Airplane(1,fly);
+		stringReturned = classUnderTest.howDoYouFly();
+		assertEquals("Wrong answer!", stringReturned, expectedOutput);
 	}
 }
 
