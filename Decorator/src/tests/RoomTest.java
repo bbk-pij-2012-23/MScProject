@@ -3,6 +3,7 @@ package tests;
 import static org.junit.Assert.*;
 
 import oldCode.BedRoom;
+import oldCode.Room;
 
 import org.junit.Test;
 
@@ -12,7 +13,7 @@ public class RoomTest {
 	public void test() {
 		String expectedResult = "BedRoom";
 		String actualResult = null;
-		BedRoom classUnderTest = new BedRoom();
+		Room classUnderTest = new BedRoom();
 		actualResult = classUnderTest.whatKindOfRoomAreYou();
 		assertEquals("Wrong answer! ", expectedResult, actualResult);
 	}
