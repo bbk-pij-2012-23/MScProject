@@ -7,8 +7,8 @@ public class PAP extends Person implements AnotherPerson {
  */
 	@Override
 	public String youWho() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return whoAreYou();
 	}
 
 }
