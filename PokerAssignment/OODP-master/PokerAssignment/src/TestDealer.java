@@ -66,6 +66,7 @@ public class TestDealer {
 	 *  Hands could have some static values. not sure yet. 
 	 * 
 	 * works but implemented very badly - consult patterns for way to improve
+	 * following tests check for expected results and pass
 	 */
 	
 	@Test
@@ -187,6 +188,11 @@ public class TestDealer {
 		assertEquals(expected, output);
 		
 	}
+	
+	/* need tests to check for unexpected results
+	 * Work out pos combos
+	 * 
+	 */
 
 }
 

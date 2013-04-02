@@ -64,7 +64,45 @@ public class Calculator<T> {
 		}
 		return consecutives;
 	}
+	
+	/**
+	 * 
+	 * @param values
+	 * @return highValues
+	 */
+	
+	public ArrayList<Integer> highValues(int[] values) {
+		ArrayList<Integer> highValues = new ArrayList<Integer>();
+		for(int value : values){
+			if(value==1){
+				highValues.add(1);
+			}
+			else{
+				if(value>=11){
+					highValues.add(value);
+				}
+			}
+		}
 		
+		return highValues;
+	}
+	
+	//to finish
+	public ArrayList<Integer> highConsecs(ArrayList<Integer> highValues){
+		if(highValues.size()>=2){
+			int[] temp = new int[5];
+			int i = 0;
+			while (i<highValues.size()){
+				temp[i] = (highValues.get(i));
+				i++;
+			}
+			consecValues(temp);
+			
+		}
+		return null;
+	}
+	
+	
 	public void print(ArrayList<T> printValues){
 		Iterator<T> it = printValues.iterator();
 		while(it.hasNext()){
@@ -90,4 +128,5 @@ public class Calculator<T> {
 		
 
 	}
+	
 }

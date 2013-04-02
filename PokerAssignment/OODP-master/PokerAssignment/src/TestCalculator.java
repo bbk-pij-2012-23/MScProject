@@ -109,4 +109,15 @@ public class TestCalculator {
 		assertEquals(expected,output);
 	}
 	
+	@Test
+	public void testHighValues(){
+		testCal = new Calculator<Integer>();
+		int [] cardValues = {3,4,6,12,1};
+		ArrayList<Integer> expected = new ArrayList<Integer>();
+		expected.add(12);
+		expected.add(1);
+		ArrayList<Integer> output = testCal.highValues(cardValues);
+		assertEquals(expected,output);
+	}
+	
 }
