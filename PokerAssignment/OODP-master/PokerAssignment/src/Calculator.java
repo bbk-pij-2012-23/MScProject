@@ -80,12 +80,12 @@ public class Calculator<T> {
 	 */
 	
 	public static void main (String[] args){
-		int[] cardValues= {};
-		int[] suitValues = {2,3,3,4,1};
+		int[] cardValues= {1,2,3,4,5};
+		int[] suitValues = {2,2,2,2,2};
 		Calculator<Integer> run =  new Calculator<Integer>();
 		//ArrayList<Integer> sameValues = run.sameValues(cardValues);
-		run.print(run.sameValues(cardValues));
-		//run.print(run.sameValues(suitValues));
+		run.print(run.consecValues(cardValues));
+		run.print(run.sameValues(suitValues));
 		//ArrayList<Integer> sameSuits = run.sameValues(suitValues);
 		
 

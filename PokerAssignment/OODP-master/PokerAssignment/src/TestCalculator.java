@@ -43,6 +43,24 @@ public class TestCalculator {
 	}
 	
 	/**
+	 * test expected input results in expected output
+	 * sameValues does not handle 3 or 4 same values well. It does id 3 and 4 (returns the value repeated
+	 * for 3 and repeated 3 times for four of a kind. Its not pretty.
+	 */
+	@Test
+	public void testSameValue3OAKind(){
+		testCal = new Calculator<Integer>();
+		int [] cardValues = {3,3,3,3,12};
+		ArrayList<Integer> expected = new ArrayList<Integer>();
+		expected.add(3);
+		expected.add(3);
+		expected.add(3);
+		ArrayList<Integer> output = testCal.sameValues(cardValues);
+		assertEquals(expected, output);
+	}
+	
+	
+	/**
 	 * test for unexpected input:
 	 * 
 	 * - empty array

@@ -1,5 +1,7 @@
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -15,7 +17,7 @@ import org.junit.Test;
  *
  */
 public class TestDealer {
-
+	Dealer testDealer;
 	/**
 	 * @throws java.lang.Exception
 	 */
@@ -59,5 +61,143 @@ public class TestDealer {
 	public void testValidateCards() {
 		fail("Not yet implemented");
 	}
+	
+	/** Make it controller's job to interpret calculator results as card hands
+	 *  Hands could have some static values. not sure yet. 
+	 * 
+	 * works but implemented very badly - consult patterns for way to improve
+	 */
+	
+	@Test
+	public void testIDHandsStraight() {
+		testDealer = new Dealer();
+		ArrayList<Integer> calcSameSuits = new ArrayList<Integer>();
+		ArrayList<Integer> calcConsecValues = new ArrayList<Integer>();
+		ArrayList<Integer> calcSameValues = new ArrayList<Integer>();
+		calcConsecValues.add(3);
+		calcConsecValues.add(4);
+		calcConsecValues.add(5);
+		calcConsecValues.add(6);
+		calcConsecValues.add(7);
+		String output = testDealer.bestHand(calcSameValues, calcConsecValues, calcSameSuits);
+		String expected = "a straight";
+		assertEquals(expected, output);
+		
+	}
+	
+	@Test
+	public void testIDHandsFlush() {
+		testDealer = new Dealer();
+		ArrayList<Integer> calcSameSuits = new ArrayList<Integer>();
+		ArrayList<Integer> calcConsecValues = new ArrayList<Integer>();
+		ArrayList<Integer> calcSameValues = new ArrayList<Integer>();
+		calcSameSuits.add(3);
+		calcSameSuits.add(3);
+		calcSameSuits.add(3);
+		calcSameSuits.add(3);
+		String output = testDealer.bestHand(calcSameValues, calcConsecValues, calcSameSuits);
+		String expected = "a flush";
+		assertEquals(expected, output);
+		
+	}
+	
+	@Test
+	public void testIDHandsPair() {
+		testDealer = new Dealer();
+		ArrayList<Integer> calcSameSuits = new ArrayList<Integer>();
+		ArrayList<Integer> calcConsecValues = new ArrayList<Integer>();
+		ArrayList<Integer> calcSameValues = new ArrayList<Integer>();
+		calcSameValues.add(3);
+		String output = testDealer.bestHand(calcSameValues, calcConsecValues, calcSameSuits);
+		String expected = "a pair";
+		assertEquals(expected, output);
+		
+	}
+	
+	@Test
+	public void testIDHands2Pairs() {
+		testDealer = new Dealer();
+		ArrayList<Integer> calcSameSuits = new ArrayList<Integer>();
+		ArrayList<Integer> calcConsecValues = new ArrayList<Integer>();
+		ArrayList<Integer> calcSameValues = new ArrayList<Integer>();
+		calcSameValues.add(3);
+		calcSameValues.add(4);
+		String output = testDealer.bestHand(calcSameValues, calcConsecValues, calcSameSuits);
+		String expected = "two pairs";
+		assertEquals(expected, output);
+		
+	}
+	
+	@Test
+	public void testIDHands3OAKind() {
+		testDealer = new Dealer();
+		
+		ArrayList<Integer> calcSameSuits = new ArrayList<Integer>();
+		ArrayList<Integer> calcConsecValues = new ArrayList<Integer>();
+		ArrayList<Integer> calcSameValues = new ArrayList<Integer>();
+		calcSameValues.add(3);
+		calcSameValues.add(3);
+		String output = testDealer.bestHand(calcSameValues, calcConsecValues, calcSameSuits);
+		String expected = "three of a kind";
+		assertEquals(expected, output);
+		
+	}
+	
+	/*
+	 * can also get 3oakind and pair
+	 */
+	@Test
+	public void testIDHands3OAKindAlt() {
+		testDealer = new Dealer();
+		ArrayList<Integer> calcSameSuits = new ArrayList<Integer>();
+		ArrayList<Integer> calcConsecValues = new ArrayList<Integer>();
+		ArrayList<Integer> calcSameValues = new ArrayList<Integer>();
+		calcSameValues.add(3);
+		calcSameValues.add(3);
+		calcSameValues.add(4);
+		String output = testDealer.bestHand(calcSameValues, calcConsecValues, calcSameSuits);
+		String expected = "three of a kind";
+		assertEquals(expected, output);
+		
+	}
+	
+	@Test
+	public void testIDHands4OAKind() {
+		testDealer = new Dealer();
+		ArrayList<Integer> calcSameSuits = new ArrayList<Integer>();
+		ArrayList<Integer> calcConsecValues = new ArrayList<Integer>();
+		ArrayList<Integer> calcSameValues = new ArrayList<Integer>();
+		calcSameValues.add(3);
+		calcSameValues.add(3);
+		calcSameValues.add(3);
+		String output = testDealer.bestHand(calcSameValues, calcConsecValues, calcSameSuits);
+		String expected = "four of a kind";
+		assertEquals(expected, output);
+		
+	}
+	
+	@Test
+	public void testIDHandsNothing() {
+		testDealer = new Dealer();
+		ArrayList<Integer> calcSameSuits = new ArrayList<Integer>();
+		ArrayList<Integer> calcConsecValues = new ArrayList<Integer>();
+		ArrayList<Integer> calcSameValues = new ArrayList<Integer>();
+		String output = testDealer.bestHand(calcSameValues, calcConsecValues, calcSameSuits);
+		String expected = "nothing";
+		assertEquals(expected, output);
+		
+	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
