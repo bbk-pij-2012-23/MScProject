@@ -4,7 +4,6 @@
 
 
 import static org.junit.Assert.*;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
@@ -33,6 +32,7 @@ public class TestCalculator {
 	 */
 	@Test
 	public void testCountSameValue(){
+		
 		testCal = new Calculator<Integer>();
 		int [] cardValues = {3,3,10,12,12};
 		ArrayList<Integer> expected = new ArrayList<Integer>();
