@@ -1,19 +1,20 @@
 
 	public class HospitalSystem {
 		 Patient patientListStart = null;
-		//	
+		Patient lastPatient = null;
+		
 		public void addPatient(Patient newPatient) {
 			if(patientListStart == null){
 				patientListStart = newPatient;
+				lastPatient = newPatient;
 			}
 			else{
-				Patient pos = patientListStart; 
-				while(pos.nextPatient != null){
-					pos = pos.nextPatient;
-				}
+				Patient pos = lastPatient; 
 				pos.nextPatient = newPatient; //this is where the link to next patient is
 				newPatient.prevPatient = pos; //this is the link to the previous patient
-			
+				newPatient.nextPatient = patientListStart;
+				patientListStart.prevPatient = newPatient;
+				lastPatient = newPatient;
 			}
 			
 		}	

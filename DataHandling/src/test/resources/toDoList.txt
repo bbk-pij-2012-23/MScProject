@@ -1,0 +1,4 @@
+To do list:
+
+IOStringParser: parseToDouble
+This does very little error checking - assumes that the file is delimited correctly (no trailing spaces etc)

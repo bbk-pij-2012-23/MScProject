@@ -3,7 +3,6 @@ package tests;
 import static org.junit.Assert.*;
 
 import newCode.DecoratedRoomWithDoor;
-import newCode.DecoratedRoomWithSwitch;
 import oldCode.BedRoom;
 
 import org.junit.Test;
