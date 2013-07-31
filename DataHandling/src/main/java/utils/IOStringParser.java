@@ -20,7 +20,7 @@ public class IOStringParser{
 		int rows = ioInput.size();
 		double [][] array = new double [rows][columns];
 		for (int i = 0; i < rows; i++){
-			String[] s = ioInput.get(i).split(delimiter);
+			String [] s = ioInput.get(i).split(delimiter);
 			for(int j=0; j < columns; j++){
 				try{
 					array[i][j] = Double.parseDouble(s[j]);

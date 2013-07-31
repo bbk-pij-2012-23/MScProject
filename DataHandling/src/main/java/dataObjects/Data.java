@@ -1,14 +1,27 @@
 package dataObjects;
+import java.util.HashMap;
+
 import no.uib.cipr.matrix.io.MatrixInfo;
 
+/* There are some data structure decisions to be made:
+ * How to represent information about the matrix - need to retrieve:
+ * * which column is skin conductance level? MovingWindowData:createSegments
+ * * how many rows in the matrix? MovingWindowData:createSegments
+ * 
+ * 
+ */
 
-
-
+/**
+ * dimensions[0] = number of rows 
+ * dimensions[1] = number of columns 
+ * @author emann06
+ *
+ */
 
 public class Data {
 	double [][] data;
 	int[] dimensions;
-	String variableLabels;
+	String labels;
 	
 	public Data(double[][] data){
 		this.data = data;
@@ -36,11 +49,11 @@ public class Data {
 	}
 
 	public String getVariableLabels() {
-		return variableLabels;
+		return labels;
 	}
 
-	public void setVariableLabels(String variableLabels) {
-		this.variableLabels = variableLabels;
+	public void setVariableLabels(String labels) {
+		this.labels = labels;
 	}
 	
 	public String toString(){
@@ -48,7 +61,7 @@ public class Data {
 		for (int i = 0; i < dimensions[0]; i++){
 			
 			for(int j = 0; j < dimensions[1]; j++){
-				matrix = matrix + " " + data[i][j]; 
+				matrix = matrix +  data[i][j] + " "; 
 			}
 			matrix = matrix + "\n";
 		}

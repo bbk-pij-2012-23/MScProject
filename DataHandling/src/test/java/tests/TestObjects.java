@@ -38,9 +38,8 @@ public class TestObjects {
 	}
 	
 	@Test
-	public void testMovingWindow() throws Exception {
-		MovingWindowData testData = new MovingWindowData(new MatrixVectorReader(new BufferedReader(new FileReader(new File("H:/id012.txt")))), 90);
-		assertNotNull(testData);
+	public void testMovingWindow(){
+		fail("not yet implemented");
 	}
 	
 	

@@ -4,18 +4,22 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
+import java.io.Writer;
 import java.util.ArrayList;
+
+import dataObjects.Data;
 
 public class IOUtils {
 
 	/**general file opener
-	 * 
+	 * trims leading spaces, which is needed for later parsing
 	 * @param filename
 	 * @return array, an ArrayList of rows in Strings for parsing into numeric data
 	 */
-	public ArrayList<String> openFile(String filename){
+	public Data openFile(String filename){
 		ArrayList<String> array = new ArrayList<String>();
 		File file = new File(filename);
 		BufferedReader in = null;
@@ -24,9 +28,10 @@ public class IOUtils {
 			String line;
 		
 			while((line=in.readLine()) != null){
+				line = line.trim();
 				array.add(line);
 			}
-			return array;
+		
 		}catch(FileNotFoundException ex){
 			System.out.println("File not found");
 		}catch(IOException ex){
@@ -35,7 +40,10 @@ public class IOUtils {
 		}finally{
 			closeReader(in);
 		}
-		return array;
+		
+		IOStringParser parse = new IOStringParser();
+		Data data = parse.parseToDouble(array, "\\s+");
+		return data;
 	}
 	
 
@@ -55,6 +63,32 @@ public class IOUtils {
 	}
 	
 	
+	
+	public void writeAFile(String location, String toWrite){
+		File file = new File(location);
+		FileWriter out = null;
+		try{
+			out = new FileWriter(file, true);
+			out.write(toWrite);
+		}catch(FileNotFoundException ex){
+			ex.printStackTrace();
+		}catch(IOException ex){
+			ex.printStackTrace();
+		}finally{
+			closeWriter(out);
+		}
+		
+	}
+	
+	private void closeWriter(Writer writer){
+		try{
+			if(writer!=null){
+				writer.close();
+			}
+		}catch(IOException ex){
+			ex.printStackTrace();
+		}
+	}
 	/**
 	 * @param args
 	 */

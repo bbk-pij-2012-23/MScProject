@@ -11,7 +11,7 @@ import dataObjects.Data;
 import utils.IOStringParser;
 import utils.IOUtils;
 
-public class TestParsers {
+public class TestIOStringParser {
 
 	/* Check the object is created
 	 * 
@@ -33,11 +33,24 @@ public class TestParsers {
 		fail("not yet implemented");
 	}
 	
+	/*
+	 * having coupled this class with IOUtils it now only splits at whitespace
+	 * need to change this so that csv and other data can be imported
+	 */
+	@Test
+	public void testRightDelimiter(){
+		fail("not yet implemented");
+	}
 
-	
+	/*test that trailing spaces and other formating artifacts
+	 * are not producing splits at the wrong places 
+	 * this has been added to the IO module on reading in a String
+	 * 
+	 */
 	@Test
 	public void testSpiltBetween(){
-		fail("not yet implemented");
+		
+		//assertEquals(2, dimensions[1]);
 	}
 	
 	/*Parse to double array assumptions:
@@ -56,9 +69,9 @@ public class TestParsers {
 	@Test 
 	public void testIOStringParserWorks(){
 		IOUtils open = new IOUtils();
-		ArrayList<String> io = open.openFile("H:/id012test.txt");
-		IOStringParser run = new IOStringParser();
-		Data testData = run.parseToDouble(io, "\\s+");
+	
+		
+		Data testData = open.openFile("H:/id012test.txt");
 		System.out.println(testData.toString());		
 	}
 	
