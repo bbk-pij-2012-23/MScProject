@@ -35,7 +35,7 @@ public class MovingWindowData extends Data{
 		for (int rows = 0; rows<dimensions[0]; rows++){
 			for(int cols = 0; cols< window; cols++){
 				if(rows+cols<dimensions[0]){
-					x[rows][cols] = data[rows+cols][0];
+					x[rows][cols] = data[rows+cols][1];
 				}else{
 					continue;
 				}
